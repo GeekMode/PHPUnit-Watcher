@@ -29,6 +29,30 @@ describe('CommandLineArguments', function() {
       expect(phpUnitArguments).to.equal('--colors fixtures/FailingTest.php');
     });
 
+    it('removes PWU filename if it ends with ".js" or not', function() {
+      var phpUnitConfiguration = ['node', '/home/niro/PHPUnit-Watcher/pwu.js', '--colors', 'fixtures/FailingTest.php'],
+        commandLineArguments = new CommandLineArguments(phpUnitConfiguration);
+
+      var phpUnitArguments = commandLineArguments.getPHPUnitArguments();
+      expect(phpUnitArguments).to.equal('--colors fixtures/FailingTest.php');
+    });
+
+    it('doesnot remove any arguments that resemble the filename', function() {
+      var phpUnitConfiguration = ['node', '/home/niro/PHPUnit-Watcher/pwu.js', '--colors', 'fixtures/pwu.php', 'fixtures/pwu/fake.php'],
+        commandLineArguments = new CommandLineArguments(phpUnitConfiguration);
+
+      var phpUnitArguments = commandLineArguments.getPHPUnitArguments();
+      expect(phpUnitArguments).to.equal('--colors fixtures/pwu.php fixtures/pwu/fake.php');
+    });
+
+    it('doesnot remove any arguments that resembles node', function() {
+      var phpUnitConfiguration = ['node', '/home/niro/PHPUnit-Watcher/pwu.js', '--colors', 'fixtures/node.php', 'fixtures/node/fake.php'],
+        commandLineArguments = new CommandLineArguments(phpUnitConfiguration);
+
+      var phpUnitArguments = commandLineArguments.getPHPUnitArguments();
+      expect(phpUnitArguments).to.equal('--colors fixtures/node.php fixtures/node/fake.php');
+    });
+
   });
 
 });
