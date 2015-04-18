@@ -1,0 +1,27 @@
+{
+  "name": "PHPUnit-Watcher",
+  "version": "0.0.1",
+  "description": "PHPUnit Watcher. Autoruns PHPUnit on file changes. PUW works like a drop-in replacement for PHPUnit; any arguments passed to PUW will be piped to PHPUnit.",
+  "keywords": [
+    "phpunit",
+    "watcher",
+    "php",
+    "tdd",
+    "watch",
+    "runner",
+    "continuous",
+    "automate",
+    "autorun"
+  ],
+  "author": "Niroshan Sugirtharatnam <codeniro@gmail.com>",
+  "license": "MIT",
+
+  "devDependencies": {
+    "chai": "2.2.x",
+    "mocha": "2.2.x"
+  },
+
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --watch -r test/setup.js"
+  }
+}
