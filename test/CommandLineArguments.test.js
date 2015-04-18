@@ -20,6 +20,15 @@ describe('CommandLineArguments', function() {
       var phpUnitArguments2 = commandLineArguments2.getPHPUnitArguments();
       expect(phpUnitArguments2).to.equal('-c app/');
     });
+
+    it('removes PWU arguments regardless of letter case used', function() {
+      var phpUnitConfiguration = ['nOdE', '/home/niro/PHPUnit-Watcher/pWu', '--colors', 'fixtures/FailingTest.php'],
+        commandLineArguments = new CommandLineArguments(phpUnitConfiguration);
+
+      var phpUnitArguments = commandLineArguments.getPHPUnitArguments();
+      expect(phpUnitArguments).to.equal('--colors fixtures/FailingTest.php');
+    });
+
   });
 
 });
