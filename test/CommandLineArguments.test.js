@@ -11,14 +11,14 @@ describe('CommandLineArguments', function() {
         commandLineArguments1 = new CommandLineArguments(phpUnitConfiguration1);
 
       var phpUnitArguments1 = commandLineArguments1.getPHPUnitArguments();
-      expect(phpUnitArguments1).to.equal('--colors fixtures/FailingTest.php');
+      expect(phpUnitArguments1).to.deep.equal(['--colors', 'fixtures/FailingTest.php']);
 
 
       var phpUnitConfiguration2 = ['node', '/home/niro/PHPUnit-Watcher/puw', '-c', 'app/'],
         commandLineArguments2 = new CommandLineArguments(phpUnitConfiguration2);
 
       var phpUnitArguments2 = commandLineArguments2.getPHPUnitArguments();
-      expect(phpUnitArguments2).to.equal('-c app/');
+      expect(phpUnitArguments2).to.deep.equal(['-c', 'app/']);
     });
 
     it('removes PUW arguments regardless of letter case used', function() {
@@ -26,7 +26,7 @@ describe('CommandLineArguments', function() {
         commandLineArguments = new CommandLineArguments(phpUnitConfiguration);
 
       var phpUnitArguments = commandLineArguments.getPHPUnitArguments();
-      expect(phpUnitArguments).to.equal('--colors fixtures/FailingTest.php');
+      expect(phpUnitArguments).to.deep.equal(['--colors', 'fixtures/FailingTest.php']);
     });
 
     it('removes PUW filename if it ends with ".js" or not', function() {
@@ -34,7 +34,7 @@ describe('CommandLineArguments', function() {
         commandLineArguments = new CommandLineArguments(phpUnitConfiguration);
 
       var phpUnitArguments = commandLineArguments.getPHPUnitArguments();
-      expect(phpUnitArguments).to.equal('--colors fixtures/FailingTest.php');
+      expect(phpUnitArguments).to.deep.equal(['--colors', 'fixtures/FailingTest.php']);
     });
 
     it('removes PUW filename if app was launched using directory location or "."', function() {
@@ -42,7 +42,7 @@ describe('CommandLineArguments', function() {
         commandLineArguments = new CommandLineArguments(phpUnitConfiguration);
 
       var phpUnitArguments = commandLineArguments.getPHPUnitArguments();
-      expect(phpUnitArguments).to.equal('--colors fixtures/FailingTest.php');
+      expect(phpUnitArguments).to.deep.equal(['--colors', 'fixtures/FailingTest.php']);
     });
 
     it('doesnot remove any arguments that resemble the filename', function() {
@@ -50,7 +50,7 @@ describe('CommandLineArguments', function() {
         commandLineArguments = new CommandLineArguments(phpUnitConfiguration);
 
       var phpUnitArguments = commandLineArguments.getPHPUnitArguments();
-      expect(phpUnitArguments).to.equal('--colors fixtures/puw.php fixtures/puw/fake.php');
+      expect(phpUnitArguments).to.deep.equal(['--colors', 'fixtures/puw.php', 'fixtures/puw/fake.php']);
     });
 
     it('doesnot remove any arguments that resembles node', function() {
@@ -58,7 +58,7 @@ describe('CommandLineArguments', function() {
         commandLineArguments = new CommandLineArguments(phpUnitConfiguration);
 
       var phpUnitArguments = commandLineArguments.getPHPUnitArguments();
-      expect(phpUnitArguments).to.equal('--colors fixtures/node.php fixtures/node/fake.php');
+      expect(phpUnitArguments).to.deep.equal(['--colors', 'fixtures/node.php', 'fixtures/node/fake.php']);
     });
 
   });
