@@ -15,7 +15,6 @@
   ],
   "author": "Niroshan Sugirtharatnam <codeniro@gmail.com>",
   "license": "MIT",
-
   "repository": {
     "type": "git",
     "url": "https://github.com/GeekMode/PHPUnit-Watcher.git"
@@ -24,8 +23,9 @@
     "chai": "2.2.x",
     "mocha": "2.2.x"
   },
-
   "scripts": {
-    "test": "./node_modules/.bin/mocha --watch -r test/setup.js"
+    "test": "./node_modules/.bin/mocha -r test/setup.js"
+  },
+  "dependencies": {
   }
 }
