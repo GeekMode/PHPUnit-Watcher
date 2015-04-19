@@ -1,11 +1,16 @@
 'use strict';
 
 var CommandLineArguments = require('./lib/CommandLineArguments'),
-  PHPUnitArgumentsGenerator = require('./lib/PHPUnitArgumentsGenerator');
+  PHPUnitArgumentsGenerator = require('./lib/PHPUnitArgumentsGenerator'),
+  commandLineArguments,
+  phpUnitArgumentGenerator,
+  phpUnitLaunchCommand;
 
-var commandLineArguments = new CommandLineArguments(process.argv);
-var phpUnitArgumentGenerator = new PHPUnitArgumentsGenerator(commandLineArguments.getPHPUnitArguments());
+//get command line arguments relevant to be passed to PHPUnit
+commandLineArguments = new CommandLineArguments(process.argv);
 
-var phpUnitLaunchCommand = phpUnitArgumentGenerator.getLaunchCommand();
+//generate shell command for launching PHPUnit with relevant arguments
+phpUnitArgumentGenerator = new PHPUnitArgumentsGenerator(commandLineArguments.getPHPUnitArguments());
+phpUnitLaunchCommand = phpUnitArgumentGenerator.getLaunchCommand();
 
 console.log(phpUnitLaunchCommand);
