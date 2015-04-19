@@ -18,11 +18,11 @@ Launch
 ---
 Global
 <pre>
-pwu <i>[options] [php test file locations]</i>
+puw <i>[options] [php test file locations]</i>
 </pre>
 Local
 <pre>
-node pwu <i>[options] [php test file locations]</i>
+node puw <i>[options] [php test file locations]</i>
 </pre>
 
 Todo
