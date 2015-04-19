@@ -31,12 +31,15 @@ node puw <i>[options] [php test file locations]</i>
 - enable passing of phpunit location as argument
 - make PUW a standalone app using NW.js
 
+## License
+
+[MIT](LICENSE)
+
+Copyright (c) 2015 Niroshan Sugirtharatnam.
+
+
 [travis-image]: https://travis-ci.org/GeekMode/PHPUnit-Watcher.svg?branch=master
 [travis-url]: https://travis-ci.org/GeekMode/PHPUnit-Watcher
 
 [coveralls-image]: https://img.shields.io/coveralls/GeekMode/PHPUnit-Watcher/master.svg
 [coveralls-url]: https://coveralls.io/r/GeekMode/PHPUnit-Watcher?branch=master
-
-## License
-Copyright (c) 2015 Niroshan Sugirtharatnam.
-Licensed under the MIT license.
