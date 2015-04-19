@@ -5,7 +5,7 @@ describe('PUW', function() {
     var output = '',
       exec = require('child_process').exec;
 
-    var child = exec('node puw fixtures/FailingTest.php');
+    var child = exec('node lib/puw fixtures/FailingTest.php');
 
     child.stdout.on('data', function(data) {
       output += data;

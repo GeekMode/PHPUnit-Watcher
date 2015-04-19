@@ -1,2 +1,2 @@
 expect = require('chai').expect;
-app = require('../lib-cov/app');
+app = require('../lib-cov/puw');
