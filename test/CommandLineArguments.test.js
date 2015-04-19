@@ -37,6 +37,14 @@ describe('CommandLineArguments', function() {
       expect(phpUnitArguments).to.equal('--colors fixtures/FailingTest.php');
     });
 
+    it('removes PUW filename if app was launched using directory location or "."', function() {
+      var phpUnitConfiguration = ['node', '/home/niro/PHPUnit-Watcher', '--colors', 'fixtures/FailingTest.php'],
+        commandLineArguments = new CommandLineArguments(phpUnitConfiguration);
+
+      var phpUnitArguments = commandLineArguments.getPHPUnitArguments();
+      expect(phpUnitArguments).to.equal('--colors fixtures/FailingTest.php');
+    });
+
     it('doesnot remove any arguments that resemble the filename', function() {
       var phpUnitConfiguration = ['node', '/home/niro/PHPUnit-Watcher/puw.js', '--colors', 'fixtures/puw.php', 'fixtures/puw/fake.php'],
         commandLineArguments = new CommandLineArguments(phpUnitConfiguration);
