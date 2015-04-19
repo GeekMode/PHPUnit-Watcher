@@ -20,12 +20,14 @@
     "url": "https://github.com/GeekMode/PHPUnit-Watcher.git"
   },
   "devDependencies": {
-    "chai": "2.2.x",
-    "mocha": "2.2.x"
+    "chai": "2.2.0",
+    "coveralls": "2.11.2",
+    "jscoverage": "0.5.9",
+    "mocha": "2.2.4",
+    "mocha-lcov-reporter": "0.0.2"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha -r test/setup.js"
+    "test": "./node_modules/.bin/mocha -r test/setup-mocha.js"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

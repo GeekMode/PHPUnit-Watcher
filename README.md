@@ -1,5 +1,5 @@
 # PHPUnit-Watcher
-[![Build Status](https://travis-ci.org/GeekMode/PHPUnit-Watcher.svg?branch=master)](https://travis-ci.org/GeekMode/PHPUnit-Watcher)
+[![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url]
 
 Autoruns PHPUnit on file changes. PUW works like a drop-in replacement for PHPUnit; any arguments passed to PUW will be piped to PHPUnit.
 
@@ -36,3 +36,9 @@ Todo
 - use packaged PHPUnit if it's not found globally
 - enable passing of phpunit location as argument
 - make PUW a standalone app using NW.js
+
+[travis-image]: https://travis-ci.org/GeekMode/PHPUnit-Watcher.svg?branch=master
+[travis-url]: https://travis-ci.org/GeekMode/PHPUnit-Watcher
+
+[coveralls-image]: https://img.shields.io/coveralls/GeekMode/PHPUnit-Watcher/master.svg
+[coveralls-url]: https://coveralls.io/r/GeekMode/PHPUnit-Watcher?branch=master
